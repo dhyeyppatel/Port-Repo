@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Portfolio — Chatbot Interface (header + profile + resume viewer)</title>
+<title>Dhyey - Portfolio ChatBot</title>
 
 <!-- initialize theme early to avoid flash -->
 <script>
@@ -33,7 +33,7 @@
     --chat-border: rgba(255,255,255,0.06);
     --profile-bg: rgba(6,10,16,0.92);
     --profile-border: rgba(255,255,255,0.06);
-    --right-width-min: 360px;
+    --right-width-min: 320px;
     --right-width-max: 480px;
     --notch-bg-dark: #0b0c10;
     --notch-bg-light: #ffffff;
@@ -82,7 +82,7 @@
 
   /* Profile panel */
   .profile-panel{
-    position:fixed; right:18px; top:86px; width:420px; min-width:300px; max-width: calc(100% - 48px);
+    position:fixed; right:18px; top:86px; width:420px; min-width:260px; max-width: calc(100% - 48px);
     background:var(--profile-bg); border-radius:12px; padding:18px; border:1px solid var(--profile-border);
     box-shadow:0 22px 60px rgba(0,0,0,0.45); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .18s,transform .18s;
     z-index:99999; overflow:visible;
@@ -96,11 +96,11 @@
   .profile-actions{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
 
   /* Main layout */
-  main.container{max-width:1100px;margin:34px auto;padding:20px;display:grid;grid-template-columns:1fr minmax(var(--right-width-min), var(--right-width-max));gap:28px}
+  main.container{max-width:1100px;margin:24px auto;padding:16px;display:grid;grid-template-columns:1fr minmax(var(--right-width-min), var(--right-width-max));gap:20px}
   @media (max-width:980px){main.container{grid-template-columns:1fr;padding:12px}}
 
   /* chat window */
-  .chat-window{background:linear-gradient(180deg,var(--panel),var(--panel-2));border-radius:16px;padding:18px;height:76vh;display:flex;flex-direction:column;gap:12px;border:1px solid var(--chat-border);scroll-margin-top:120px}
+  .chat-window{background:linear-gradient(180deg,var(--panel),var(--panel-2));border-radius:16px;padding:14px;height:70vh;display:flex;flex-direction:column;gap:12px;border:1px solid var(--chat-border);scroll-margin-top:120px;min-height:420px}
   .chat-header{display:flex;align-items:center;gap:12px}
   .bot-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;cursor:pointer}
   .bot-meta{font-size:13px;color:var(--muted)}
@@ -122,17 +122,18 @@
   .term-top{display:flex;align-items:center;gap:8px;padding:6px}
   .terminal .controls{margin-left:auto;display:flex;gap:6px}
   .small-btn{padding:6px 8px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted)}
-  .terminal.resizable{resize:both; overflow:auto; min-height:72px; max-height:80vh; min-width:220px; max-width:100%;}
+  .terminal.resizable{resize:both; overflow:auto; min-height:72px; max-height:60vh; min-width:220px; max-width:100%;}
   .terminal.collapsed{height:72px; overflow:hidden}
   .dots{display:flex;gap:8px}
   .dot{width:12px;height:12px;border-radius:999px;background:#ff5f56;box-shadow:0 0 8px rgba(255,95,86,0.12)}
   pre.code{flex:1;overflow:auto;white-space:pre-wrap;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;background:transparent;color:var(--code-color);padding:6px;border-radius:6px;border-top:1px solid var(--border)}
 
   /* Resume modal */
-  .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;z-index:100000;padding:20px}
+  .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.65);display:none;align-items:center;justify-content:center;z-index:100000;padding:12px}
   .modal-backdrop.open{display:flex}
-  .resume-modal{width:100%;max-width:1000px;height:80vh;background:var(--panel);border-radius:12px;border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column}
-  .resume-top{display:flex;align-items:center;padding:10px 12px;border-bottom:1px solid var(--border);gap:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005))}
+  .resume-modal{width:100%;max-width:1000px;height:84vh;background:var(--panel);border-radius:12px;border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,0.55)}
+  /* MAKE HEADER OPAQUE: use profile-bg which adapts to theme */
+  .resume-top{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border);gap:8px;background:var(--profile-bg);color:var(--text)}
   .resume-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
   .resume-frame{flex:1;background:white}
   .resume-frame iframe{width:100%;height:100%;border:0;display:block}
@@ -142,19 +143,34 @@
   section.projects{grid-column:1/-1;margin-top:28px}
   .projects-search{display:flex;gap:12px;align-items:center}
   .projects-search input{flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text)}
-  .project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
+  .project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
   .project-card{background:var(--panel-2);padding:12px;border-radius:10px;border:1px solid var(--border);min-height:120px}
   .project-desc{color:var(--muted);min-height:48px}
 
   footer{grid-column:1/-1;margin-top:28px;padding:18px;border-radius:10px;text-align:center;color:var(--muted)}
-  @media (max-width:780px){ .terminal{height:260px} .chat-window{height:60vh} }
+
+  /* MOBILE / SMALLER LAPTOP TWEAKS */
+  @media (max-width:980px){
+    .notch-inner{padding:10px;border-radius:20px}
+    .chat-window{height:62vh; min-height:360px}
+    .resume-modal{height:76vh}
+    .terminal.resizable{max-height:45vh}
+  }
+
   @media (max-width:640px){
-    .notch-inner{padding:8px;border-radius:18px}
-    nav.top a{display:none}
+    nav.top a{display:none} /* keep header compact */
     main.container{grid-template-columns:1fr}
     .profile-panel{width:92vw; left:4vw; right:auto; max-width:92vw;}
     .profile-row{gap:12px;flex-wrap:wrap}
-    .resume-modal{height:72vh}
+    .resume-modal{height:94vh; max-width:720px; border-radius:10px}
+    .resume-frame{background:transparent}
+    .chat-window{height:auto; min-height:420px}
+    .messages{max-height:55vh; overflow:auto}
+    /* make modal backdrop slightly darker on small screens for focus */
+    .modal-backdrop{background:rgba(2,6,23,0.78)}
+    /* show a compact top bar on small screens: keep buttons comfortable size */
+    .resume-top{padding:10px 12px; gap:8px}
+    .small-link{padding:8px 10px}
   }
 </style>
 </head>
@@ -174,9 +190,8 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#blogs">Blogs</a>
-        <a href="#contact" class="cta">Contact</a>
-        <!-- Resume link (opens embedded viewer) -->
-        <a id="navResume" href="#" title="Open resume (viewer)">Resume</a>
+        <!-- NAV: Resume should scroll to contact (resume area) as requested -->
+        <a id="navResume" href="#contact" class="cta" title="Go to resume section">Resume</a>
       </nav>
 
       <div style="display:flex;align-items:center;gap:12px">
@@ -195,7 +210,7 @@
     <div class="profile-row">
       <div id="profileImage" class="profile-img"></div>
       <div class="profile-info">
-        <div id="profileName" class="name">Your Name</div>
+        <div id="profileName" class="name">Dhyey Patel</div>
         <div id="profileRole" class="role">Final year Computer Engineering Student</div>
         <div style="margin-top:8px;color:var(--muted)">Email: <a id="profileEmail" href="mailto:your@email.com">your@email.com</a></div>
       </div>
@@ -250,7 +265,7 @@
         <div class="dots" aria-hidden="true"><div class="dot"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#27c93f"></div></div>
         <pre id="codeBlock" class="code">// Developer
 const developer = {
-  name: 'Your Name',
+  name: 'Dhyey Patel',
   role: 'Final year Computer Engineering Student',
   skills: ['Java', 'Android', 'Flutter', 'React'],
   projects: ['Bill Buddy','CashInCashOut','EduHelper','Online Food Ordering','Chatbots...']
@@ -280,20 +295,50 @@ const developer = {
 
       <div class="project-list" id="projectList">
         <div class="project-card" data-title="Bill Buddy"><h4><a href="https://github.com/dhyeyppatel/Bill_Buddyy.git" target="_blank" rel="noopener noreferrer">Bill Buddy — Android App</a></h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="CashInCashOut"><h4>CashInCashOut — Flutter App</h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="EduHelper"><h4>EduHelper — Android App</h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="Online Food Ordering"><h4>Online Food Ordering — React Web</h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="Autofilterbot"><h4>Autofilterbot — Chatbot</h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="File Sharing bot"><h4>File Sharing bot — Chatbot</h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="Sharebazaar"><h4>Sharebazaar — Bot & Web</h4><div class="project-desc"></div></div>
-        <div class="project-card" data-title="Numerology bot"><h4>Numerology bot — Chatbot</h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="CashInCashOut"><h4><a href="https://github.com/dhyeyppatel/Cash-in-out.git" target="_blank" rel="noopener noreferrer">CashInCashOut — Flutter App</a></h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="EduHelper"><h4><a href="https://github.com/dhyeyppatel/EDU_HELPER.git" target="_blank" rel="noopener noreferrer">EduHelper — Android App</a></h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="Online Food Ordering"><h4><a href="https://github.com/dhyeyppatel/Bill_Buddyy.git" target="_blank" rel="noopener noreferrer">Online Food Ordering — React Web</a></h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="Autofilterbot"><h4><a href="https://t.me/dhyeyautofilterbot" target="_blank" rel="noopener noreferrer">Autofilterbot — Chatbot</a></h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="File Sharing bot"><h4><a href="https://github.com/dhyeyppatel/File-Sharing-Bot.git" target="_blank" rel="noopener noreferrer">File Sharing bot — Chatbot</a></h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="Sharebazaar"><h4><a href="https://github.com/dhyeyppatel/Indian-Stock-Details.git" target="_blank" rel="noopener noreferrer">Sharebazaar — Bot & Web</a></h4><div class="project-desc"></div></div>
+        <div class="project-card" data-title="Numerology bot"><h4><a href="https://github.com/dhyeyppatel/Numero-AstroBot.git" target="_blank" rel="noopener noreferrer">Numerology bot — Chatbot</a></h4><div class="project-desc"></div></div>
       </div>
     </section>
 
-    <section id="about" style="grid-column:1/-1;margin-top:28px">
-      <h2>About</h2>
-      <p style="color:var(--muted);max-width:78ch">I am a final-year Computer Engineering student. (Add more about yourself here.)</p>
-    </section>
+   <section id="about" style="grid-column:1/-1;margin-top:28px">
+    <h2>About</h2>
+
+    <p style="color:var(--muted);max-width:78ch">
+        Hi there, I'm Dhyey! I'm a computer engineering student in my final year, currently navigating the world of code from Vadodara while studying in Surat.
+    </p>
+
+    <p style="color:var(--muted);max-width:78ch">
+        I love bringing ideas to life, especially through code. My core passion is crafting experiences that people can interact with, which has led me to focus on two exciting areas: <strong>Android Development</strong> and <strong>Conversational AI</strong>. There's something magical about building a chatbot that can genuinely help someone or an app that fits seamlessly into their day. I'm also comfortable building basic websites to complete the digital picture.
+    </p>
+
+    <h4 style="margin-top: 2em; margin-bottom: 1em;">My Tech Stack</h4>
+    <div style="color:var(--muted);max-width:78ch">
+        <ul>
+            <li><strong>Languages:</strong> [Python, Java, JavaScript, HTML/CSS]</li>
+            <li><strong>Mobile Development:</strong> [e.g., Android SDK, Firebase]</li>
+            <li><strong>AI / Chatbots:</strong> [e.g., Bot JavaScript, NLTK, TensorFlow Lite]</li>
+            <li><strong>Web &amp; Databases:</strong> [e.g., SQL, MongoDB]</li>
+            <li><strong>Tools &amp; Platforms:</strong> [e.g., Git, GitHub, Android Studio, VS Code]</li>
+        </ul>
+    </div>
+
+    <p style="color:var(--muted);max-width:78ch; margin-top: 2em;">
+        My <strong>Projects</strong> section is where you'll find my polished work. If you're curious about what I'm currently tinkering with or want to see my code in the wild, my GitHub is the place to be (yes, even the half-finished experiments!).
+    </p>
+    
+    <p style="color:var(--muted);max-width:78ch">
+        When I'm not coding, I believe in continuous learning and staying active. You can often find me cycling or in the swimming pool. I'm also dedicated to expanding my horizons and am currently learning German, having maintained a <strong>450+ day streak on Duolingo</strong> to build my vocabulary. My fascination with patterns also extends to my hobbies in numerology and astrology.
+    </p>
+
+    <p style="color:var(--muted);max-width:78ch">
+        I am currently seeking a <strong>full-time Software Developer or an Android Developer Internship role starting in November 2025</strong>, where I can contribute to meaningful projects and continue to grow my skills. If you have an opportunity that aligns with my skills or just want to connect, I'd love to hear from you. Please feel free to reach out to me at <a href="mailto:dhyeyp254@gmail.com"><strong>dhyeyp254@gmail.com</strong></a>. More details are available in the <strong>Contact</strong> section.
+    </p>
+</section>
 
     <section id="blogs" style="grid-column:1/-1;margin-top:18px">
       <h2>Blogs & Gists</h2>
@@ -351,7 +396,7 @@ const GIST_USER = 'dhyeyppatel';
 
 /* Resume storage keys and optional default (put a live PDF URL here if you want) */
 const RESUME_KEY = 'resume-url';          // localStorage key name
-let RESUME_DEFAULT = 'Dhyey Patel - Resume.pdf';                  // <-- put your hosted resume URL here (e.g. 'https://.../Resume.pdf')
+let RESUME_DEFAULT = 'Dhyey Patel - Resume.pdf';                  // <-- put your hosted resume URL here (e.g. 'https://.../Resume.pdf') or leave blank
 let resumeSessionBlobUrl = null;          // object URL if you programmatically set one
 
 /* =========== THEME =========== */
@@ -601,7 +646,6 @@ const viewResumeBtn = document.getElementById('viewResumeBtn');
 const shareResumeBtn = document.getElementById('shareResumeBtn');
 const resumeNameEl = document.getElementById('resumeName');
 const downloadResume = document.getElementById('downloadResume');
-const navResume = document.getElementById('navResume');
 const resumeBackdrop = document.getElementById('resumeBackdrop');
 const resumeFrame = document.getElementById('resumeFrame');
 const openNewTab = document.getElementById('openNewTab');
@@ -618,10 +662,8 @@ function getSavedResume(){
 function filenameFromUrl(url){
   try {
     if(!url) return '';
-    // if blob: or data: provide friendly label
     if(url.startsWith('blob:')) return 'Uploaded resume (session)';
     if(url.startsWith('data:')) return 'Resume (data)';
-    // parse last pathname
     const u = new URL(url, location.href);
     const parts = u.pathname.split('/');
     const last = parts.filter(Boolean).pop() || u.hostname;
@@ -647,7 +689,7 @@ function updateResumeUI(){
   }
 }
 
-// open viewer (same modal as before)
+// open viewer (modal)
 function openResumeViewer(){
   const url = getSavedResume();
   if(!url){
@@ -671,7 +713,7 @@ function closeResumeViewer(){
   resumeFrame.innerHTML = '';
 }
 
-// share (uses Web Share API or fallback to clipboard)
+// share (Web Share API fallback)
 async function shareResume(){
   const url = getSavedResume();
   if(!url) {
@@ -684,7 +726,7 @@ async function shareResume(){
       simulateReply('Share dialog opened.');
       return;
     } catch(e){
-      // user cancelled or share failed — fall back to clipboard
+      // fallback
     }
   }
   try {
@@ -698,19 +740,18 @@ async function shareResume(){
 /* wire up buttons */
 viewResumeBtn.addEventListener('click', openResumeViewer);
 shareResumeBtn.addEventListener('click', shareResume);
-navResume.addEventListener('click', (e)=>{ e.preventDefault(); openResumeViewer(); });
+// NAV resume now is a simple anchor to #contact — do NOT attach JS that opens viewer
 closeResume.addEventListener('click', closeResumeViewer);
 resumeBackdrop.addEventListener('click', (ev)=>{ if(ev.target === resumeBackdrop) closeResumeViewer(); });
 
 // initialize resume UI
 (function initResumeUI(){
-  // If you want to programmatically set a session blob URL, set resumeSessionBlobUrl variable.
-  // For now, read saved/local values
+  // populate from saved/local defaults
   const stored = localStorage.getItem(RESUME_KEY);
   if(stored) {
-    // nothing else needed; UI will read via getSavedResume()
+    // left to getSavedResume() logic
   } else if(RESUME_DEFAULT){
-    // you can set RESUME_DEFAULT variable above to point to a hosted PDF
+    // if you want a default hosted resume, set RESUME_DEFAULT above
   }
   updateResumeUI();
 })();
