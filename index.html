@@ -292,7 +292,7 @@
       <div class="profile-info">
         <div id="profileName" class="name">Dhyey Patel</div>
         <div id="profileRole" class="role">Final year Computer Engineering Student</div>
-        <div style="margin-top:8px;color:var(--muted)">Email: <a id="profileEmail" href="mailto:your@email.com">your@email.com</a></div>
+        <div style="margin-top:8px;color:var(--muted)">Email: <a id="profileEmail" href="mailto:dhyeyp254@gmail.com">dhyeyp254@gmail.com</a></div>
       </div>
     </div>
 
@@ -322,6 +322,7 @@
         <div class="chip primary" data-cmd="about">About Me</div>
         <div class="chip" data-cmd="projects">View Projects</div>
         <div class="chip" data-cmd="resume">See Resume</div>
+        <div class="chip" data-cmd="freelance">Hire Me</div>
         <div class="chip" data-cmd="contact">Contact</div>
         <div class="chip" data-cmd="blogs">Blogs</div>
       </div>
@@ -335,7 +336,7 @@
     <aside class="right-column">
       <div id="terminal" class="terminal resizable" aria-expanded="true">
         <div class="term-top">
-          <strong>Terminal</strong>
+          <strong id="termTitle">Terminal</strong>
           <div class="controls">
             <button id="toggleTerminal" class="small-btn" aria-pressed="true">Collapse</button>
             <button id="copyCode" class="small-btn">Copy</button>
@@ -353,6 +354,7 @@ const developer = {
 
 // Tip: Type "projects" in the chat to explore projects.
 </pre>
+        <div id="appContainer" style="display:none; flex:1; flex-direction:column; background:var(--panel-2); border-radius:12px; padding:16px; margin-top:8px; border:1px solid var(--border); overflow:auto;"></div>
       </div>
 
       <div style="background:var(--panel);padding:12px;border-radius:12px;border:1px solid var(--border)">
@@ -651,7 +653,51 @@ async function handleCommand(raw){
   pushUser(text);
   const cmd = text.toLowerCase();
   if(cmd === 'help'){
-    await simulateReply('Commands: <code>about</code>, <code>projects</code>, <code>contact</code>, <code>blogs</code>, <code>resume</code>. Or click buttons.');
+    await simulateReply('Commands: <code>about</code>, <code>projects</code>, <code>freelance</code>, <code>tools</code>, <code>play</code>, <code>contact</code>, <code>blogs</code>, <code>resume</code>. Or click buttons.');
+  } else if(cmd === 'freelance' || cmd === 'hire me'){
+    await simulateReply('Awesome! I have extensive experience building scalable Telegram bots and web apps. What kind of project are you looking for?');
+    const chipRow = document.createElement('div');
+    chipRow.className = 'chips';
+    chipRow.innerHTML = `<div class="chip" onclick="handleCommand('hire:bot')">Telegram Bot</div><div class="chip" onclick="handleCommand('hire:web')">Web App</div><div class="chip" onclick="handleCommand('hire:custom')">Custom Tool</div>`;
+    messages.appendChild(chipRow); scrollMessages();
+  } else if(cmd.startsWith('hire:')){
+    let type = cmd.split(':')[1];
+    let msg = type === 'bot' ? 'Great! I build custom bots using python-telegram-bot, Telethon, and Pyrogram. From eCommerce to moderation.' 
+              : type === 'web' ? 'I can build interactive MERN stack or React frontends for you.'
+              : 'Let us discuss your custom requirements.';
+    await simulateReply(msg + ' I have pre-filled an email for you. Let\'s talk!');
+    const subject = encodeURIComponent('Freelance Project Inquiry: ' + type);
+    const body = encodeURIComponent('Hi Dhyey,\n\nI am interested in hiring you for a ' + type + ' project. \n\nDetails:\n');
+    setTimeout(() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=dhyeyp254@gmail.com&su=${subject}&body=${body}`, '_blank'), 1500);
+  } else if(cmd === 'play'){
+    await simulateReply('Loading a static game in the side panel... Have fun!');
+    document.getElementById('codeBlock').style.display = 'none';
+    document.getElementById('copyCode').style.display = 'none';
+    document.getElementById('termTitle').textContent = 'Mini Game';
+    const app = document.getElementById('appContainer');
+    app.style.display = 'flex';
+    app.innerHTML = '<div style="text-align:center; padding:20px; color:var(--text)"><h4>Tic Tac Toe</h4><div id="tttBoard" style="display:grid; grid-template-columns:repeat(3, 60px); gap:5px; justify-content:center; margin-top:20px;">' + Array(9).fill().map((_,i)=>`<div class="ttt-cell" style="width:60px; height:60px; background:var(--panel); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:24px; cursor:pointer;" onclick="this.textContent=this.textContent?this.textContent:(Math.random()>0.5?\'X\':\'O\')"></div>`).join('') + '</div><p style="margin-top:16px; color:var(--muted); font-size:12px;">(Simulated static game! Click cells.)</p><button class="small-btn" onclick="restoreTerminal()" style="margin-top:20px;">Close Game</button></div>';
+  } else if(cmd === 'tools'){
+    await simulateReply('Loading quick tools in the side panel...');
+    document.getElementById('codeBlock').style.display = 'none';
+    document.getElementById('copyCode').style.display = 'none';
+    document.getElementById('termTitle').textContent = 'Mini Toolbox';
+    const app = document.getElementById('appContainer');
+    app.style.display = 'flex';
+    app.innerHTML = '<div style="display:flex; flex-direction:column; gap:16px;"><h4>Text Case Converter</h4><textarea id="toolText" style="width:100%; height:80px; background:var(--input-bg); border:1px solid var(--border); color:var(--text); padding:8px; border-radius:8px;" placeholder="Type text here..."></textarea><div style="display:flex; gap:8px;"><button class="small-btn" onclick="document.getElementById(\'toolText\').value = document.getElementById(\'toolText\').value.toUpperCase()">UPPERCASE</button><button class="small-btn" onclick="document.getElementById(\'toolText\').value = document.getElementById(\'toolText\').value.toLowerCase()">lowercase</button></div><button class="small-btn" onclick="restoreTerminal()" style="align-self:flex-start; margin-top:12px;">Close Tools</button></div>';
+  } else if(cmd === 'sudo run' || cmd === 'sudo' || cmd === 'matrix'){
+    await simulateReply('<span style="color:#22c55e; font-weight:bold;">Access Granted. Initiating protocol...</span>');
+    document.body.style.background = '#000';
+    document.documentElement.style.setProperty('--bg-from', '#000');
+    document.documentElement.style.setProperty('--bg-to', '#001100');
+    document.documentElement.style.setProperty('--text', '#22c55e');
+    document.documentElement.style.setProperty('--accent-gradient', 'linear-gradient(135deg, #15803d, #22c55e)');
+    document.documentElement.style.setProperty('--panel', 'rgba(0,50,0,0.1)');
+    document.documentElement.style.setProperty('--panel-2', 'rgba(0,50,0,0.05)');
+    document.getElementById('codeBlock').style.color = '#22c55e';
+    setTimeout(() => simulateReply('System override complete. Welcome to the Matrix.'), 1200);
+  } else if(cmd === 'coffee'){
+    await simulateReply('<pre style="font-family:monospace; line-height:1.2; color:var(--muted)">\n   (  )   (   )  )\n     ) (   )  (  (\n     ( )  (    ) )\n     _____________ \n    <_____________> ___\n    |             |/ _ \\\n    |               | | |\n    |               |_| |\n ___|             |\\___/\n/    \\___________/    \\\n\\_____________________/\n</pre><br>Here is your coffee! Keep coding.');
   } else if(cmd === 'about'){
     await simulateReply('Opening About...'); document.getElementById('about').scrollIntoView({behavior:'smooth'});
   } else if(cmd === 'projects'){
@@ -676,6 +722,15 @@ chips.forEach(chip=>{
     handleCommand(cmd);
   });
 });
+
+
+window.restoreTerminal = function(){
+  document.getElementById('appContainer').style.display = 'none';
+  document.getElementById('appContainer').innerHTML = '';
+  document.getElementById('codeBlock').style.display = 'block';
+  document.getElementById('copyCode').style.display = 'block';
+  document.getElementById('termTitle').textContent = 'Terminal';
+};
 
 /* =========== PROJECT SEARCH =========== */
 const projSearch = document.getElementById('projSearch');
