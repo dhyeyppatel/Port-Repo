@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google AdSense Verification & Script Injection -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9358238296992186" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-9358238296992186">
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Search Crawl Rules & SEO Meta -->
+  <meta name="robots" content="index, follow" />
+  <title>Dhyey Patel | Interactive Chatbot Portfolio</title>
+  <meta name="description" content="Interactive, terminal-inspired chatbot portfolio of Dhyey Patel, a Computer Engineering student specializing in Android Development, Telegram Chatbots, and Full-Stack Web Development." />
+  <meta name="keywords" content="Dhyey Patel, Dhyey, dhyeyppatel, chatbot portfolio, Android developer, Telegram bots, python-telegram-bot, Flutter developer, portfolio, computer engineering, Vadodara, Surat" />
+  <meta name="author" content="Dhyey Patel" />
+
+  <!-- Open Graph / Facebook Previews -->
+  <meta property="og:title" content="Dhyey Patel | Interactive Chatbot Portfolio" />
+  <meta property="og:description" content="Explore Dhyey's projects, skills, and resume through an interactive chatbot and simulated terminal interface." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dhyeyppatel.github.io" />
+  <meta property="og:image" content="https://ar-hosting.pages.dev/1754132046937.jpg" />
+
+  <!-- Twitter Preview Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dhyey Patel | Interactive Chatbot Portfolio" />
+  <meta name="twitter:description" content="Explore Dhyey's projects, skills, and resume through an interactive chatbot and simulated terminal interface." />
+  <meta name="twitter:image" content="https://ar-hosting.pages.dev/1754132046937.jpg" />
+
+  <!-- Dynamic JSON-LD Structured Data Schema Tag -->
+  <script type="application/ld+json" id="seoSchema"></script>
+
+  <!-- Typography & Styling Connections -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Early Theme Initialization Script to avoid style flashing -->
+  <script>
+    (function(){
+      try {
+        const root = document.documentElement;
+        const saved = localStorage.getItem('chat-theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+        else {
+          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          root.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+        }
+      } catch(e){}
+    })();
+  </script>
+
+  <!-- GSAP Animations & ScrollTrigger CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- JS Script Link -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header Navigation Notch -->
+  <header class="notch" role="banner">
+    <div class="notch-inner">
+      <div class="brand">
+        <div id="avatar" class="avatar" title="Open profile"></div>
+        <div class="titles">
+          <!-- H1 Heading Tag (SEO Optimization) -->
+          <h1 class="title">Portfolio Bot</h1>
+          <div id="timeText" class="sub">Status: Online • --:--</div>
+        </div>
+      </div>
+
+      <nav class="top" aria-label="top navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blogs">Blogs</a>
+        <a id="navResume" href="#contact" class="cta" title="Go to resume section">Resume</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <div id="themeToggle" class="theme-toggle" title="Toggle theme" role="button" aria-pressed="false">
+          <div class="knob"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile Panel Drawer -->
+  <div id="profilePanel" class="profile-panel" role="dialog" aria-hidden="true">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <strong>Profile</strong>
+      <button id="closeProfile" class="small-btn" aria-label="Close profile">Close</button>
+    </div>
+
+    <div class="profile-row">
+      <div id="profileImage" class="profile-img"></div>
+      <div class="profile-info">
+        <div id="profileName" class="name">Dhyey Patel</div>
+        <div id="profileRole" class="role">Final year Computer Engineering Student</div>
+        <div style="margin-top:8px;color:var(--muted)">Email: <a id="profileEmail" href="mailto:dhyeyp254@gmail.com">dhyeyp254@gmail.com</a></div>
+      </div>
+    </div>
+
+    <hr style="border:none;border-top:1px solid var(--profile-border);margin:12px 0">
+    <div style="color:var(--muted);font-size:14px;margin-bottom:8px">Navigate Section</div>
+    <div class="profile-actions">
+      <a class="chip" href="#home">Home</a>
+      <a class="chip" href="#about">About</a>
+      <a class="chip" href="#projects">Projects</a>
+      <a class="chip" href="#blogs">Blogs</a>
+      <a class="chip" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Container Grid -->
+  <main class="container" id="home">
+    
+    <!-- Top Responsive Ad Placement (AdSense Optimized Layout) -->
+    <div class="ad-placement" id="adTopPlacement" style="grid-column: 1 / -1; display: none;">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle"
+           style="display:block;width:100%;height:90px;"
+           data-ad-client="ca-pub-9358238296992186"
+           data-ad-slot="default"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Chatbot Window -->
+    <section class="chat-window" aria-label="portfolio chat">
+      <div class="chat-header">
+        <div id="botAvatar" class="bot-avatar" title="Open profile"></div>
+        <div>
+          <div style="font-weight:700">Hi — I'm your portfolio bot</div>
+          <div class="bot-meta">Type a command or use buttons below</div>
+        </div>
+      </div>
+
+      <div class="messages" id="messages" aria-live="polite">
+        <div class="msg bot"><strong>Hi there!</strong> I'm an interactive portfolio chatbot. I can guide you through my projects, skills, blogs, and contact details. Try the command chips below or type <code>help</code>.</div>
+      </div>
+
+      <div class="chips" id="chips" role="navigation">
+        <div class="chip primary" data-cmd="about">About Me</div>
+        <div class="chip" data-cmd="projects">View Projects</div>
+        <div class="chip" data-cmd="resume">See Resume</div>
+        <div class="chip" data-cmd="freelance">Hire Me</div>
+        <div class="chip" data-cmd="contact">Contact</div>
+        <div class="chip" data-cmd="blogs">Blogs</div>
+      </div>
+
+      <div class="input-row">
+        <input id="userInput" placeholder="Type a command (help / projects / about / contact / resume)" aria-label="Chat input">
+        <button id="sendBtn" aria-label="Send">Send</button>
+      </div>
+    </section>
+
+    <!-- Sidebar Aside Column -->
+    <aside class="right-column">
+      <div id="terminal" class="terminal resizable" aria-expanded="true">
+        <div class="term-top">
+          <strong id="termTitle">Terminal</strong>
+          <div class="controls">
+            <button id="toggleTerminal" class="small-btn" aria-pressed="true">Collapse</button>
+            <button id="copyCode" class="small-btn">Copy</button>
+          </div>
+        </div>
+
+        <div class="dots" aria-hidden="true">
+          <div class="dot"></div>
+          <div class="dot" style="background:#ffbd2e"></div>
+          <div class="dot" style="background:#27c93f"></div>
+        </div>
+        <pre id="codeBlock" class="code"></pre>
+        <div id="appContainer" style="display:none; flex:1; flex-direction:column; background:var(--panel-2); border-radius:var(--radius-sm); padding:16px; margin-top:8px; border:1px solid var(--border); overflow:auto;"></div>
+      </div>
+
+      <div class="quick-links-card">
+        <h4>Quick Links</h4>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+          <a href="#projects" class="chip">Projects</a>
+          <a href="#about" class="chip">About</a>
+          <a href="#contact" class="chip">Contact</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Ad Placement (AdSense Optimized Layout) -->
+      <div class="ad-placement" id="adSidebarPlacement" style="display: none;">
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9358238296992186"
+             data-ad-slot="default"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </aside>
+
+    <!-- Projects Section Grid -->
+    <section class="projects" id="projects">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-search">
+          <input id="projSearch" placeholder="Search projects (type to filter)..." aria-label="Project search">
+        </div>
+      </div>
+
+      <div class="project-list" id="projectList">
+        <!-- Dynamically Hydrated from config.json -->
+      </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section id="about" class="content-section">
+      <!-- Dynamically Hydrated from config.json -->
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="content-section">
+      <h2>Blogs & Gists</h2>
+      <p style="color:var(--muted);"></p>
+      <div id="gistsContainer" style="margin-top:12px;display:flex;flex-direction:column;gap:12px"></div>
+    </section>
+
+    <!-- Contact & Resume Section -->
+    <section id="contact" class="content-section">
+      <h2>Contact</h2>
+      <p style="color:var(--muted);">Email: <a id="contactEmail" href="mailto:your@email.com">your@email.com</a></p>
+
+      <div style="margin-top:12px;padding:12px;border-radius:var(--radius-sm);background:var(--panel);border:1px solid var(--border);display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <div id="resumeInfo" style="min-width:200px;font-weight:700;color:var(--muted)">
+          Resume: <span id="resumeName" style="color:var(--text)">Not set</span>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+          <button id="viewResumeBtn" class="small-btn" disabled>View</button>
+          <button id="shareResumeBtn" class="small-btn" disabled>Share</button>
+          <a id="downloadResume" class="small-link" href="#" target="_blank" rel="noopener" download style="display:none">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer with Sitemap compliance links -->
+    <footer role="contentinfo">
+      <div class="footer-nav">
+        <a href="#home">Home</a> •
+        <a href="#about">About</a> •
+        <a href="#projects">Projects</a> •
+        <a href="#" onclick="openPrivacyModal(); return false;">Privacy Policy &amp; Disclaimer</a>
+      </div>
+      <div style="margin-top:8px;">
+        Dhyey Patel &copy; 2026
+      </div>
+    </footer>
+  </main>
+
+  <!-- Resume PDF Modal Backdrop -->
+  <div id="resumeBackdrop" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="resume-modal" role="document">
+      <div class="resume-top">
+        <strong>Resume Viewer</strong>
+        <div class="resume-actions">
+          <button id="openNewTab" class="small-link">Open in new tab</button>
+          <a id="downloadInModal" class="small-link" href="#" target="_blank" rel="noopener" download>Download</a>
+          <button id="closeResume" class="small-link">Close</button>
+        </div>
+      </div>
+      <div class="resume-frame" id="resumeFrame">
+        <!-- iframe injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- GDPR Cookie Consent Compliance Banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite">
+    <div class="cookie-text">
+      We use cookies (such as third-party Google AdSense advertising cookies) to customize layouts and ads. By continuing, you agree to our cookie terms. Review our <a href="#" onclick="openPrivacyModal(); return false;" style="text-decoration:underline;color:var(--accent);">Privacy Policy &amp; Disclaimer</a> for details.
+    </div>
+    <div class="cookie-actions">
+      <button id="cookieDecline" class="small-btn">Decline</button>
+      <button id="cookieAccept" class="small-btn" style="background:var(--accent-gradient);color:white;border:none;">Accept</button>
+    </div>
+  </div>
+
+  <!-- Privacy Policy & Disclaimer Modal (Required for AdSense Publisher Verification) -->
+  <div id="privacyBackdrop" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="resume-modal" style="max-width:800px;height:80vh;" role="document">
+      <div class="resume-top">
+        <strong>Privacy Policy &amp; Disclaimer</strong>
+        <div class="resume-actions">
+          <button onclick="closePrivacyModal()" class="small-link">Close</button>
+        </div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:24px 32px;background:var(--profile-bg);line-height:1.6;color:var(--text);">
+        <h3 style="margin-bottom:12px;color:var(--text);">Privacy Policy</h3>
+        <p style="margin-bottom:16px;color:var(--muted);">
+          Your privacy is highly valued. This Privacy Policy outlines what information is collected and how it is processed on this portfolio website. We utilize Google AdSense advertisements, which serve cookies to customize the user's advertising experiences.
+        </p>
+        <h4 style="margin-bottom:8px;color:var(--text);">1. Cookies and Web Beacons</h4>
+        <p style="margin-bottom:16px;color:var(--muted);">
+          We do not host or gather direct personal identifying data, other than contact emails that you send voluntarily. However, Google AdSense uses cookies to serve ads based on your previous visits to this site or other websites. You can disable third-party cookies in your browser settings.
+        </p>
+        <h4 style="margin-bottom:8px;color:var(--text);">2. DoubleClick DART Cookies</h4>
+        <p style="margin-bottom:16px;color:var(--muted);">
+          Google's DoubleClick DART cookies enable it to display ads relevant to visitors' interests. You may choose to opt-out of DART cookies by visiting the Google Ad network privacy resource.
+        </p>
+        
+        <hr style="border:none;border-top:1px solid var(--border);margin:24px 0;">
+        
+        <h3 style="margin-bottom:12px;color:var(--text);">Disclaimer</h3>
+        <p style="margin-bottom:16px;color:var(--muted);">
+          The contents of this portfolio are provided on an "as is" basis. While we attempt to maintain correct details, we make no representations or warranties about the completeness or accuracy of any information, products, or external links provided. Reliance placed on this material is strictly at your own discretion.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

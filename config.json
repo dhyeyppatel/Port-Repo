@@ -1,0 +1,105 @@
+{
+  "seo": {
+    "title": "Dhyey Patel | Interactive Chatbot Portfolio",
+    "description": "Interactive, terminal-inspired chatbot portfolio of Dhyey Patel, a Computer Engineering student specializing in Android Development, Telegram Chatbots, and Full-Stack Web Development.",
+    "keywords": "Dhyey Patel, Dhyey, dhyeyppatel, chatbot portfolio, Android developer, Telegram bots, python-telegram-bot, Flutter developer, portfolio, computer engineering, Vadodara, Surat",
+    "author": "Dhyey Patel",
+    "url": "https://dhyeyppatel.github.io"
+  },
+  "adsense": {
+    "clientId": "ca-pub-9358238296992186",
+    "showPlacements": true
+  },
+  "profile": {
+    "name": "Dhyey Patel",
+    "shortName": "Dhyey",
+    "role": "Final year Computer Engineering Student",
+    "email": "dhyeyp254@gmail.com",
+    "avatarUrl": "https://ar-hosting.pages.dev/1754132046937.jpg",
+    "location": "Surat, Gujarat, India",
+    "gitHubUser": "dhyeyppatel",
+    "duolingoStreak": "500+",
+    "resumeFile": "Dhyey Patel - Resume.pdf",
+    "social": {
+      "github": "https://github.com/dhyeyppatel",
+      "email": "mailto:dhyeyp254@gmail.com"
+    }
+  },
+  "about": {
+    "heading": "About",
+    "paragraphs": [
+      "Hi there, I'm Dhyey! I'm a computer engineering student in my final year, currently navigating the world of code from Vadodara while studying in Surat.",
+      "I love bringing ideas to life, especially through code. My core passion is crafting experiences that people can interact with, which has led me to focus on two exciting areas: <strong>Android Development</strong> and <strong>Interactive Chatbots</strong>. There's something magical about building a chatbot that can genuinely help someone or an app that fits seamlessly into their day. I'm also comfortable building basic MERN stack websites to complete the digital picture.",
+      "My <strong>Projects</strong> section is where you'll find my polished work. If you're curious about what I'm currently tinkering with or want to see my code in the wild, my GitHub is the place to be (yes, even the half-finished experiments!).",
+      "When I'm not coding, I believe in continuous learning and staying active. You can often find me cycling or in the swimming pool. I'm also dedicated to expanding my horizons and am currently learning German, having maintained a <strong>500+ day streak on Duolingo</strong> to build my vocabulary. My fascination with patterns also extends to my hobbies in numerology and astrology.",
+      "I am currently seeking a <strong>full-time Software Developer or an Android Developer Internship role starting in November 2025</strong>, where I can contribute to meaningful projects and continue to grow my skills."
+    ],
+    "skills": {
+      "Languages": ["Python", "JavaScript", "HTML", "CSS"],
+      "Mobile Development": ["Flutter", "Android SDK"],
+      "Chatbots": ["python-telegram-bot", "Telethon", "Pyrogram"],
+      "Databases": ["MongoDB", "MySQL"],
+      "Developer Tools": ["Git", "GitHub", "VS Code", "Android Studio", "Postman", "XAMPP"],
+      "Cloud & Deployment": ["Koyeb", "Render", "Cloudflare"],
+      "Bot-Specific Platforms": ["Bots Business", "Telebot Creator", "RunMyBot"]
+    }
+  },
+  "terminal": {
+    "title": "Developer Profile",
+    "code": "// Developer\nconst developer = {\n    \"name\": \"Dhyey Patel\",\n    \"role\": \"Aspiring Chat Bot, Mobile & Full-Stack Developer\", \n    \"builds\": \"Bots, Mobile & Web Apps\", \n    \"skills\": [\"Python\", \"Javascript\", \"Flutter\"], \n    \"focus\": \"Real-world problem solving\"\n}\n\n// Tip: Type \"projects\" in the chat to explore projects."
+  },
+  "projects": [
+    {
+      "title": "Bill Buddy",
+      "subtitle": "Android App",
+      "url": "https://github.com/dhyeyppatel/Bill_Buddyy.git",
+      "description": "Smart Android app to split bills and track shared expenses with friends seamlessly."
+    },
+    {
+      "title": "CashInCashOut",
+      "subtitle": "Flutter App",
+      "url": "https://github.com/dhyeyppatel/Cash-in-out.git",
+      "description": "Cross-platform Flutter application for personal finance, tracking daily income and expenses."
+    },
+    {
+      "title": "EduHelper",
+      "subtitle": "Android App",
+      "url": "https://github.com/dhyeyppatel/EDU_HELPER.git",
+      "description": "Educational utility Android app helping students manage notes, reminders, and study resources."
+    },
+    {
+      "title": "Online Food Ordering",
+      "subtitle": "React Web",
+      "url": "https://github.com/dhyeyppatel/Bill_Buddyy.git",
+      "description": "Full-stack food ordering platform dashboard built with React and interactive state management."
+    },
+    {
+      "title": "Autofilterbot",
+      "subtitle": "Chatbot",
+      "url": "https://t.me/dhyeyautofilterbot",
+      "description": "Advanced Telegram chatbot that filters and indexes files automatically for channels and groups."
+    },
+    {
+      "title": "File Sharing bot",
+      "subtitle": "Chatbot",
+      "url": "https://github.com/dhyeyppatel/File-Sharing-Bot.git",
+      "description": "A powerful Telegram bot designed to store, manage, and share files securely via unique links."
+    },
+    {
+      "title": "Sharebazaar",
+      "subtitle": "Bot & Web",
+      "url": "https://github.com/dhyeyppatel/Indian-Stock-Details.git",
+      "description": "Real-time stock tracker bot providing Indian stock market updates and stock metrics."
+    },
+    {
+      "title": "Numerology bot",
+      "subtitle": "Chatbot",
+      "url": "https://github.com/dhyeyppatel/Numero-AstroBot.git",
+      "description": "Fun interactive Telegram bot calculating birth path numbers, astrological signs, and predictions."
+    }
+  ],
+  "blogs": {
+    "title": "Blogs & Gists",
+    "description": "Below are my public gists fetched dynamically from GitHub."
+  }
+}
