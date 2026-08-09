@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google AdSense Verification & Script Injection -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9358238296992186" crossorigin="anonymous"></script>
-  <meta name="google-adsense-account" content="ca-pub-9358238296992186">
-  <meta name="google-site-verification" content="Ww5HpHiIXYz5RtsEgNAvbSNG-y4F1ebfizirf-zQyqA" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+  <meta name="theme-color" content="#0D1117" />
+
+  <!-- AdSense account verification (meta only, script moved to body for performance) -->
+  <meta name="google-adsense-account" content="ca-pub-9358238296992186">
+  <meta name="google-site-verification" content="Ww5HpHiIXYz5RtsEgNAvbSNG-y4F1ebfizirf-zQyqA" />
+
   <!-- Search Crawl Rules & SEO Meta -->
   <meta name="robots" content="index, follow" />
   <title>Dhyey Patel | Interactive Chatbot Portfolio</title>
   <meta name="description" content="Interactive, terminal-inspired chatbot portfolio of Dhyey Patel, a Computer Engineering student specializing in Android Development, Telegram Chatbots, and Full-Stack Web Development." />
   <meta name="keywords" content="Dhyey Patel, Dhyey, dhyeyppatel, chatbot portfolio, Android developer, Telegram bots, python-telegram-bot, Flutter developer, portfolio, computer engineering, Vadodara, Surat" />
   <meta name="author" content="Dhyey Patel" />
-  
 
   <!-- Open Graph / Facebook Previews -->
   <meta property="og:title" content="Dhyey Patel | Interactive Chatbot Portfolio" />
@@ -32,15 +32,24 @@
   <!-- Dynamic JSON-LD Structured Data Schema Tag -->
   <script type="application/ld+json" id="seoSchema"></script>
 
-  <!-- Typography & Styling Connections -->
+  <!-- DNS Prefetch & Preconnect for all 3rd-party origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- CSS Link -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://ar-hosting.pages.dev">
+
+  <!-- Preload avatar image for fast LCP -->
+  <link rel="preload" as="image" href="https://ar-hosting.pages.dev/1754132046937.jpg">
+
+  <!-- Google Fonts: non-blocking load via media swap trick -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Early Theme Initialization Script to avoid style flashing -->
+  <!-- Early Theme Initialization (inline, keeps theme flash prevention) -->
   <script>
     (function(){
       try {
@@ -55,11 +64,7 @@
     })();
   </script>
 
-  <!-- GSAP Animations & ScrollTrigger CDN -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-  <!-- JS Script Link -->
+  <!-- Main JS (deferred — does not block rendering) -->
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -325,5 +330,35 @@
       </div>
     </div>
   </div>
+
+  <!-- AdSense Script: loaded after page content (non-blocking) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9358238296992186" crossorigin="anonymous"></script>
+
+  <!-- GSAP + ScrollTrigger: loaded lazily on first user scroll -->
+  <script>
+    (function() {
+      var gsapLoaded = false;
+      function loadGSAP() {
+        if (gsapLoaded) return;
+        gsapLoaded = true;
+        var s1 = document.createElement('script');
+        s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+        s1.onload = function() {
+          var s2 = document.createElement('script');
+          s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+          s2.onload = function() {
+            if (typeof initAnimations === 'function') initAnimations();
+          };
+          document.head.appendChild(s2);
+        };
+        document.head.appendChild(s1);
+      }
+      // Load on first scroll, touch, or after 3s idle — whichever comes first
+      window.addEventListener('scroll', loadGSAP, { once: true, passive: true });
+      window.addEventListener('touchstart', loadGSAP, { once: true, passive: true });
+      setTimeout(loadGSAP, 3000);
+    })();
+  </script>
+
 </body>
 </html>
